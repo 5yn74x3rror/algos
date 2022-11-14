@@ -1,0 +1,36 @@
+JavaScript Algorithms and Data Structures Masterclass
+84-103
+131+
+convert to TS or make a copy with just TS separately
+
+1.
+- find number of all anagrams for a given word
+
+2.
+Given 9 space-separated integer numbers, output the maximum clock time can be formed using those numbers.
+
+Note:
+- Not all numbers need to be included.
+- Each number can only be used once.
+
+3.
+remote channels going up or down from 0 to 99:
+n = int(input())
+for i in range(n):
+    a, b = [int(j) for j in input().split()]
+    print(min([(a-b)%100,(b-a)%100]))
+
+    4.
+    Given a guitar string s and a fret f, find the note produced if we pluck the string at this fret.
+
+The notes are EFGABCD and form a cycle. On a guitar neck, these notes are separated by 2 frets except for BC and EF that are separated by only 1 fret.
+
+For exemple:
+A2 will produce B
+E5 will produce A
+
+For this puzzle we won't bother with altered notes (no # or b), that is you'll never land between notes on the neck.
+
+n="A BC D EF G "
+i=input()
+print(n[(n.find(i[0])+int(i[1:]))%12])

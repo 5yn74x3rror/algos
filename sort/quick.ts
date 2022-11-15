@@ -1,4 +1,8 @@
-const pivot = (arr, start = 0, end = arr.length) => {
+const pivot = (
+  arr: number[],
+  start: number = 0,
+  end: number = arr.length
+) => {
   let pivotPoint = arr[start];
   let swapIdx = start;
 
@@ -14,7 +18,11 @@ const pivot = (arr, start = 0, end = arr.length) => {
   return swapIdx;
 };
 
-const quickSort = (arr, left = 0, right = arr.length) => {
+const quickSort = (
+  arr: number[],
+  left: number = 0,
+  right: number = arr.length
+) => {
   if (left < right) {
     let pivotIndex = pivot(arr, left, right);
 

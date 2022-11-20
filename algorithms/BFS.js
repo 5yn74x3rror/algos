@@ -19,6 +19,13 @@ const BFS = (tree) => {
 };
 
 // console.log(BFS(tree1));
+
+// tree2 graph
+//      10
+//     /  \
+//    6    15
+//   / \    \
+//  3   8    20
 // console.log(BFS(tree2));
 
 module.exports = BFS;

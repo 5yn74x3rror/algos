@@ -1,6 +1,11 @@
-class MaxBinaryHeap {
+class BinaryHeap {
   constructor() {
     this.values = [];
+  }
+
+  // by default it is MaxBinaryHeap
+  compare(x, y) {
+    return x > y;
   }
 
   swap(idx1, idx2) {
@@ -13,7 +18,7 @@ class MaxBinaryHeap {
     // bubble up
     let idx = this.values.length - 1;
     let parentIdx = Math.floor((idx - 1) / 2);
-    while (this.values[parentIdx] < this.values[idx]) {
+    while (this.compare(this.values[idx], this.values[parentIdx])) {
       this.swap(parentIdx, idx);
       idx = parentIdx;
       parentIdx = Math.floor((idx - 1) / 2);
@@ -30,14 +35,17 @@ class MaxBinaryHeap {
       let leftChildIdx = (2 * parentIdx) + 1;
       let leftChild = this.values[leftChildIdx];
 
-      if (leftChild > parent) {
+      if (this.compare(leftChild, parent)) {
         swapIdx = leftChildIdx
       }
 
       let rightChildIdx = (2 * parentIdx) + 2;
       let rightChild = this.values[rightChildIdx];
 
-      if (rightChild > parent && (rightChild > leftChild || !swapIdx)) {
+      if (
+        this.compare(rightChild, parent)
+        && (this.compare(rightChild, leftChild) || !swapIdx
+      )) {
         swapIdx = rightChildIdx;
       }
 
@@ -48,14 +56,11 @@ class MaxBinaryHeap {
     }
   }
 
-  extractMax() {
+  extractTop() {
     this.swap(0, this.values.length - 1);
-    
-    const max = this.values.pop();
-    
+    const top = this.values.pop();
     this.heapify(0);
-    
-    return max;
+    return top;
   }
 
   extractElement(val) {
@@ -69,14 +74,4 @@ class MaxBinaryHeap {
   }
 };
 
-const x = new MaxBinaryHeap();
-x.insert(41);
-x.insert(39);
-x.insert(33);
-x.insert(18);
-x.insert(27);
-x.insert(12);
-x.insert(55);
-console.log(x);
-console.log(x.extractElement(41));
-console.log(x);
+module.exports = BinaryHeap

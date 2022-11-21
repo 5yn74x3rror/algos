@@ -1,4 +1,4 @@
-const getDigit = (num, index) => {
+const getDigit = (num: number, index: number): number => {
   const numStr = String(num);
   return +numStr[numStr.length - index - 1] || 0;
 };
@@ -6,7 +6,7 @@ const getDigit = (num, index) => {
 // alternative
 // const getDigit2 = (num, index) => Math.floor(Math.abs(num) / Math.pow(10, index)) % 10;
 
-const digitCount = num => {
+const digitCount = (num: number): number => {
   let result = num;
   let counter = 1;
   while (result > 10) {
@@ -19,14 +19,14 @@ const digitCount = num => {
 // alternative
 //const digitCount2 = num => num === 0 ? 1 : Math.floor(Math.log10(Math.abs(num))) + 1;
 
-const mostDigits = arr => Math.max(...arr.map(el => digitCount(el)));
+const mostDigits = (arr: number[]): number => Math.max(...arr.map(el => digitCount(el)));
 
 // can also be done in-place, always overriding 'arr' in each outer loop
-const radixSort = arr => {
+const radixSort = (arr: number[]): number[] => {
   const max = mostDigits(arr);
-  let currentArr = [...arr];
+  let currentArr: number[] = [...arr];
   for (let i = 0; i < max; i++) {
-    const bucket = Array.from({ length: 10 }, () => []);
+    const bucket: number[][] = Array.from({ length: 10 }, () => []);
     
     for (let j = 0; j < currentArr.length; j++) {
       const digit = getDigit(currentArr[j], i);

@@ -1,4 +1,4 @@
-const BinaryHeap = require('./BinaryHeap');
+const BinaryHeap = require('./BinaryHeapBaseClass');
 
 class MinBinaryHeap extends BinaryHeap {
   constructor() {

@@ -17,11 +17,11 @@ class BinaryHeap {
 
     // bubble up
     let idx = this.values.length - 1;
-    let parentIdx = Math.floor((idx - 1) / 2);
-    while (this.compare(this.values[idx], this.values[parentIdx])) {
+    while (idx > 0) {
+      let parentIdx = Math.floor((idx - 1) / 2);
+      if (this.compare(this.values[idx], this.values[parentIdx])) break;
       this.swap(parentIdx, idx);
       idx = parentIdx;
-      parentIdx = Math.floor((idx - 1) / 2);
     }
 
   }

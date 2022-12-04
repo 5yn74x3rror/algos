@@ -11,5 +11,3 @@ function  minimax( node, depth, maximizingPlayer ) is
         for each child of node do
             value := min( value, minimax( child, depth − 1, TRUE ) )
         return value
-
-        
